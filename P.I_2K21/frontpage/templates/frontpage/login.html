@@ -1,0 +1,86 @@
+{% extends "frontpage/layout.html" %}
+
+{% block head %}
+	<title>S.A.M.P.</title>
+	<style>
+		footer, h1{
+			text-align: center;
+		}
+
+		form{
+			margin-left: 3px;
+		}
+
+	</style>
+{% endblock %}
+{% block body%}
+	
+
+  		<h1>Login</h1>
+
+		<form method="POST">
+			{% csrf_token %}
+			<div class="mb-3">
+				<label for="exampleInputEmail1" class="form-label">Nome</label>
+				<input type="text" class="form-control" name="nome" id="nome">
+			  </div>
+
+			<div class="mb-3">
+			  <label for="exampleInputEmail1" class="form-label">Email</label>
+			  <input type="email" class="form-control" name="email" id="email">
+			</div>
+
+			<div class="mb-3">
+			  <label for="exampleInputPassword1" class="form-label">Senha</label>
+			  <input type="password" name="senha1" class="form-control" id="senha1">
+			</div>
+
+			<div class="mb-3">
+				<label for="exampleInputPassword1" class="form-label">Confirme sua senha</label>
+				<input type="password" name="senha2" class="form-control" id="senha2">
+			</div>
+
+			<div class="mb-3">
+				<label  class="form-label">Estado</label>
+				<select id="disabledSelect" name="select" class="form-select">
+					<option value="AC">Acre</option>
+					<option value="AL">Alagoas</option>
+					<option value="AP">Amapá</option>
+					<option value="AM">Amazonas</option>
+					<option value="BA">Bahia</option>
+					<option value="CE">Ceará</option>
+					<option value="DF">Distrito Federal</option>
+					<option value="ES">Espírito Santo</option>
+					<option value="GO">Goiás</option>
+					<option value="MA">Maranhão</option>
+					<option value="MT">Mato Grosso</option>
+					<option value="MS">Mato Grosso do Sul</option>
+					<option value="MG">Minas Gerais</option>
+					<option value="PA">Pará</option>
+					<option value="PB">Paraíba</option>
+					<option value="PR">Paraná</option>
+					<option value="PE">Pernambuco</option>
+					<option value="PI">Piauí</option>
+					<option value="RJ">Rio de Janeiro</option>
+					<option value="RN">Rio Gande do Norte</option>
+					<option value="RS">Rio Grande do Sul</option>
+					<option value="RO">Rondônia</option>
+					<option value="RR">Roraima</option>
+					<option value="SC">Santa Catarina</option>
+					<option value="SE">Sergipe</option>
+					<option value="TO">Tocantins</option>
+				</select>
+			  </div>
+
+			<button type="submit" class="btn btn-outline-dark">Submit</button>
+		</form>
+			
+		<br><br><br>
+
+		<footer class="footer mt-auto py-3 bg-light">
+			<div class="container">
+			  <span class="text-muted">© 2021 Instituto Federal Catarinense - Campus Blumenau</span>
+			</div>
+		</footer>
+
+{% endblock %}
