@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title>Cadastro Paciente</title>
+	<meta charset="utf-8">
+	<meta name="description" content="SISTEMA DE AUXILIO MEDICO PACIENTE">
+	<meta name="keywords" content="Médico, paciente, facilidade,">
+	<meta name="author" content="IFC">
+	<meta http-equiv="refresh" content="300">
+	<!-- Link do bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<!-- Link do jquerry -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<!-- script do cadastro -->
+	<script src="../script/cadastro.js"></script>
+	<!-- Icone da página -->
+	<link rel="shortcut icon" type="image/x-icon" href="../img/covid-icone.png">
+	<!-- Estilo padrão -->
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<!-- Estilo único do cadastro -->
+	<link rel="stylesheet" type="text/css" href="../css/cadastro.css">
+
+</head>
+
+<body class="fundo">
+	<!-- Formulário de cadastro -->
+	<div class="estilo-contato">
+		<h2>Cadastro</h2>
+		<!-- Inicio do formulário -->
+		<!-- Classe que deixa bonito o sistema de validação -->
+		<form id="meucadastro" autocomplete="off">
+			<!-- Primeira Linha -->
+			<div class="row">
+				<!-- Input do nome -->
+				<div class="input-group">
+					<span class="input-group-text">Nome completo</span>
+					<input type="text" name="NomeCompleto" class="form-control" id="inputNome"
+						placeholder="Nome Completo" required>
+				</div>
+			</div>
+			<br>
+			<!-- Segunda linha -->
+			<div class="row g-3">
+				<!-- Primeira coluna -->
+				<div class="col-7" style="margin-right: 6%;">
+					<!-- Input da data de nascimento -->
+					<div class="input-group">
+						<span class="input-group-text">Data de nascimento</span>
+						<input type="date" name="DtNascimento" class="form-control" required id="inputData">
+					</div>
+				</div>
+				<!-- Segunda coluna -->
+				<div class="col">
+					<!-- Radios para escolher o genero da pessoa -->
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="genero" id="GeneroMasculino" value="M"
+							required>
+						<label class="form-check-label" for="GeneroMasculino">Masculino</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="genero" id="GeneroFeminino" value="F"
+							required>
+						<label class="form-check-label" for="GeneroFeminino">Feminino</label>
+					</div>
+				</div>
+			</div>
+			<br>
+			<!-- Terceira linha -->
+			<div class="row g-3">
+				<!-- Primeira coluna -->
+				<div class="col">
+					<!-- Input do CPF -->
+					<div class="input-group">
+						<span class="input-group-text">CPF</span>
+						<input type="text" name="cpf" aria-label="cpf" class="form-control" placeholder="xxx.xxx.xxx-xx"
+							id="inputCpf" minlength="14" maxlength="14" required>
+					</div>
+					<span class="invalido invisivel" id="CpfErrado" style="margin-left: 0.5%;">CPF já está em uso</span>
+				</div>
+			</div>
+			<br>
+			<!-- Quarta linha -->
+			<div class="row g-3">
+				<!-- Primeira coluna -->
+				<div class="col">
+					<!-- Input do CEP -->
+					<div class="input-group">
+						<span class="input-group-text">CEP</span>
+						<input type="text" class="form-control" id="inputCep" placeholder="xxxxx-xxx" minlength="9"
+							maxlength="9" required>
+					</div>
+				</div>
+				<!-- Segunda coluna -->
+				<div class="col">
+					<!-- Input do Complemento -->
+					<div class="input-group">
+						<span class="input-group-text">Complemento</span>
+						<input type="text" class="form-control" id="inputComplemento" placeholder="Complemento">
+					</div>
+				</div>
+			</div>
+			<br>
+			<!-- Quinta linha -->
+			<div class="row g-3">
+				<!-- Input do email -->
+				<div class="col">
+					<label for="inputEmail" class="form-label">Email</label>
+					<input type="email" class="form-control" id="inputEmail" required>
+				</div>
+				<!-- Confirmação de email -->
+				<div class="col">
+					<label for="inputConfirEmail" class="form-label">Confirmar email</label>
+					<input type="email" class="form-control" id="inputConfirEmail" required>
+					<span class="invalido invisivel" id="EmailErrado">Email discordante</span>
+				</div>
+			</div>
+			<!-- Sexta linha -->
+			<div class="row g-3">
+				<!-- Input de senha -->
+				<div class="col">
+					<label for="inputSenha" class="form-label">Senha</label>
+					<input type="password" class="form-control" id="inputSenha" minlength="8" maxlength="18" required>
+				</div>
+				<!-- Confirmação de senha -->
+				<div class="col">
+					<label for="inputConfirSenha" class="form-label">Confirmar senha</label>
+					<input type="password" class="form-control" id="inputConfirSenha" required>
+					<span class="invalido invisivel" id="SenhaErrada">Senha discordante</span>
+				</div>
+			</div>
+			<br>
+			<!-- Ficha médica cadastral -->
+			<hr>	
+			<div class="row">
+				<div class="col" style="text-align: center;">
+					<h3>
+						Ficha médica
+					</h3>
+				</div>
+				<div class="row g-3">
+					<!-- Nome do pai -->
+					<div class="col">
+						<label for="inputPai" class="form-label">Nome do pai</label>
+						<input type="text" class="form-control" id="InputPai" >
+					</div>
+					<!-- Nome da mãe -->
+					<div class="col">
+						<label for="inputMãe" class="form-label">Nome da mãe</label>
+						<input type="text" class="form-control" id="InputMae">
+						<br>
+					</div>
+
+				</div>
+
+				<form>
+					<div class="row">
+						<h5 style="font-size: 20px;">
+							Assinale as condições que se aplicam a você ou a qualquer de seus parentes mais próximos:
+						</h5>
+						<div class="col">
+							<input type="checkbox" id="Asma" name="Doenca" value="Asma">
+							<label for="subscribeNews">Asma</label>
+							<br>
+							<input type="checkbox" id="Doença cardíaca" name="Doenca" value="Doença Cardíaca">
+							<label for="subscribeNews">Doença cardíaca</label>
+							<br>
+							<input type="checkbox" id="Hipertensão arterial" name="Doenca" value="Hipertensão Arterial">
+							<label for="subscribeNews">Hipertensão arterial</label>
+							<br>
+							<input type="checkbox" id="Epilepsia" name="Doenca" value="Epilepsia">
+							<label for="subscribeNews">Epilepsia</label>
+						</div>
+						<div class="col">
+							<input type="checkbox" id="Cancer" name="Doenca" value="Cancer">
+							<label for="subscribeNews">Câncer</label>
+							<br>
+							<input type="checkbox" id="Diabete" name="Doenca" value="Diabete">
+							<label for="subscribeNews">Diabetes</label>
+							<br>
+							<input type="checkbox" id="Transtorno psiquiatrico" name="Doenca" value="Transtorno Psiquiatrico">
+							<label for="subscribeNews">Transtorno psiquiatrico</label>
+							<br>
+							<input type="checkbox" id="Nenhum" name="Doenca" value="Nenhum">
+							<label for="subscribeNews">Nenhum</label>
+							<br>
+							<div class="input-group">
+								<span class="input-group-text">Outras: </span>
+								<input type="text" name="Doenca" class="form-control">
+							</div>
+
+						</div>
+					</div>
+					<div class="row">
+						<h5 style="font-size: 20px;">
+							Marque os sintomas que você está experimentando atualmente:
+						</h5>
+						<div class="col">
+							<input type="checkbox" id="DorNoPeito" name="Sintomas" value="DorNoPeito">
+							<label for="subscribeNews">Dor no peito</label>
+							<br>
+							<input type="checkbox" id="DoencaCardiaca" name="Sintomas" value="DoencaCardiaca">
+							<label for="subscribeNews">Doença cardíaca</label>
+							<br>
+							<input type="checkbox" id="Hematologico" name="Sintomas" value="Hematologico">
+							<label for="subscribeNews">Hematológico</label>
+							<br>
+							<input type="checkbox" id="Neurologico" name="Sintomas" value="Neutrologico">
+							<label for="subscribeNews">Neurologico</label>
+						</div>
+						<div class="col">
+							<input type="checkbox" id="ProblemaRespiratorio" name="Sintomas" value="ProblemaRespiratorio">
+							<label for="subscribeNews">Problema respiratório</label>
+							<br>
+							<input type="checkbox" id="DoencaCardio" name="Sintomas" value="DoencaCardio">
+							<label for="subscribeNews">Doença cardivascular</label>
+							<br>
+							<input type="checkbox" id="PerdaDePeso" name="Sintomas" value="PerdaDePeso">
+							<label for="subscribeNews">Perda de peso</label>
+							<br>
+							<input type="checkbox" id="Nenhum" name="Sintomas" value="Nenhum">
+							<label for="subscribeNews">Nenhum</label>
+							<br>
+							<div class="input-group">
+								<span class="input-group-text">Outras: </span>
+								<input type="text" name="Sintomas" class="form-control" id="inputNome">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<label><b>Tipo sanguíneo:</b></label>
+							<br>
+							<select class="form-select" aria-label="Disabled select example" Id = "Tipo_Sanguineo">
+								<option value="none">Selecione</option>
+								<option value="a+">A+</option>
+								<option value="a-">A-</option>
+								<option value="b+">B+</option>
+								<option value="b-">B-</option>
+								<option value="ab+">AB+</option>
+								<option value="ab-">AB-</option>
+								<option value="o+">O+</option>
+								<option value="o-">O-</option>
+							</select>
+						</div>
+
+				</form>
+			</div>
+			<br>
+			<!--Opção de fazer login se já for cadastrado-->
+			<div class="row g-3">
+				<div style="text-align: center;">
+					<input type="submit" class="btn btn-site" id="verificacao" style="margin-bottom: 3%;">
+					<p><a href="index.html">se já possui conta, clique aqui!</a></p>
+					<p><a href="cadastro_medico.html">Quero me cadastrar como Médico</a></p>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

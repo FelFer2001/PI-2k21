@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title>Cadastro Médico</title>
+	<meta charset="utf-8">
+	<meta name="description" content="SISTEMA DE AUXILIO MEDICO PACIENTE">
+	<meta name="keywords" content="Médico, paciente, facilidade,">
+	<meta name="author" content="IFC">
+	<meta http-equiv="refresh" content="300">
+	<!-- Link do bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<!-- Link do jquerry -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<!-- script do cadastro -->
+	<script src="../script/cadastro_med.js"></script>
+	<!-- Icone da página -->
+	<link rel="shortcut icon" type="image/x-icon" href="../img/covid-icone.png">
+	<!-- Estilo padrão -->
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<!-- Estilo único do cadastro -->
+	<link rel="stylesheet" type="text/css" href="../css/cadastro.css">
+
+</head>
+
+<body class="fundo">
+	<!-- Formulário de cadastro -->
+	<div class="estilo-contato">
+		<h2>Cadastro de médico</h2>
+		<!-- Inicio do formulário -->
+		<!-- Classe que deixa bonito o sistema de validação -->
+		<form id="meucadastro" autocomplete="off">
+			<!-- Primeira Linha -->
+			<div class="row">
+				<!-- Input do nome -->
+				<div class="input-group">
+					<span class="input-group-text">Nome completo</span>
+					<input type="text" name="NomeCompleto" class="form-control" id="inputNome"
+						placeholder="Nome Completo" required>
+				</div>
+			</div>
+			<br>
+			<!-- Segunda linha -->
+			<div class="row g-3">
+				<!-- Primeira coluna -->
+				<div class="col-7" style="margin-right: 6%;">
+					<!-- Input da data de nascimento -->
+					<div class="input-group">
+						<span class="input-group-text">Data de nascimento</span>
+						<input type="date" name="DtNascimento" class="form-control" required id="inputData">
+					</div>
+				</div>
+				<!-- Segunda coluna -->
+				<div class="col">
+					<!-- Radios para escolher o genero da pessoa -->
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="genero" id="GeneroMasculino" value="M"
+							required>
+						<label class="form-check-label" for="GeneroMasculino">Masculino</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="genero" id="GeneroFeminino" value="F"
+							required>
+						<label class="form-check-label" for="GeneroFeminino">Feminino</label>
+					</div>
+				</div>
+			</div>
+			<br>
+			<!-- Terceira linha -->
+			<div class="row g-3">
+				<!-- Primeira coluna -->
+				<div class="col">
+					<!-- Input do CPF -->
+					<div class="input-group">
+						<span class="input-group-text">CPF</span>
+						<input type="text" name="cpf" aria-label="cpf" class="form-control" placeholder="xxx.xxx.xxx-xx"
+							id="inputCpf" minlength="14" maxlength="14" required>
+					</div>
+					<span class="invalido invisivel" id="CpfErrado" style="margin-left: 0.5%;">CPF já está em uso</span>
+				</div>
+			</div>
+			<br>
+			<!-- Quarta linha -->
+			<div class="row g-3">
+				<!-- Primeira coluna -->
+				<div class="col">
+					<!-- Input do CEP -->
+					<div class="input-group">
+						<span class="input-group-text">CEP</span>
+						<input type="text" class="form-control" id="inputCep" placeholder="xxxxx-xxx" minlength="9"
+							maxlength="9" required>
+					</div>
+				</div>
+				<!-- Segunda coluna -->
+				<div class="col">
+					<!-- Input do CRM -->
+					<div class="input-group">
+						<span class="input-group-text">CRM</span>
+						<input type="text" class="form-control" id="inputCRM">
+					</div>
+				</div>
+			</div>
+			<br>
+
+			<!-- Quinta linha -->
+			<div class="row g-3">
+				<!-- Input do email -->
+				<div class="col">
+					<label for="inputEmail" class="form-label">Email</label>
+					<input type="email" class="form-control" id="inputEmail" required>
+				</div>
+				<!-- Confirmação de email -->
+				<div class="col">
+					<label for="inputConfirEmail" class="form-label">Confirmar email</label>
+					<input type="email" class="form-control" id="inputConfirEmail" required>
+					<span class="invalido invisivel" id="EmailErrado">Email discordante</span>
+				</div>
+			</div>
+			<!-- Sexta linha -->
+			<div class="row g-3">
+				<!-- Input de senha -->
+				<div class="col">
+					<label for="inputSenha" class="form-label">Senha</label>
+					<input type="password" class="form-control" id="inputSenha" minlength="8" maxlength="18" required>
+				</div>
+				<!-- Confirmação de senha -->
+				<div class="col">
+					<label for="inputConfirSenha" class="form-label">Confirmar senha</label>
+					<input type="password" class="form-control" id="inputConfirSenha" required>
+					<span class="invalido invisivel" id="SenhaErrada">Senha discordante</span>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<label>Área de Atuação: </label>
+					<select class="form-select" aria-label="Disabled select example" id = "Area_Atuacao">
+						<option value="">Selecione</option>
+						<option value="2">Administração Hospitalar</option>
+						<option value="1">Administração em Saúde</option>
+						<option value="81">Adolescência</option>
+						<option value="3">Alergia e Imunologia Pediátrica</option>
+						<option value="4">Andrologia</option>
+						<option value="66">Angiorradiologia e Cirurgia Endovascular</option>
+						<option value="63">Atendimento ao Queimado</option>
+						<option value="75">Biologia Molecular</option>
+						<option value="76">Bioquímica</option>
+						<option value="5">Cardiologia Pediátrica</option>
+						<option value="104">Cirurgia Bariátrica</option>
+						<option value="6">Cirurgia Crânio-Maxilo-Facial</option>
+						<option value="9">Cirurgia Dermatológica</option>
+						<option value="15">Cirurgia Oncológica</option>
+						<option value="16">Cirurgia Videolaparoscópica</option>
+						<option value="8">Cirurgia da Coluna</option>
+						<option value="7">Cirurgia da Mão</option>
+						<option value="74">Cirurgia de Cabeça e Pescoço</option>
+						<option value="10">Cirurgia do Joelho</option>
+						<option value="11">Cirurgia do Ombro</option>
+						<option value="12">Cirurgia do Pé</option>
+						<option value="13">Cirurgia do Quadril</option>
+						<option value="14">Cirurgia do Trauma</option>
+						<option value="17">Citopatologia</option>
+						<option value="18">Colonoscopia</option>
+						<option value="19">Cosmiatria</option>
+						<option value="20">Densitometria Óssea</option>
+						<option value="21">Dor</option>
+						<option value="22">Ecocardiografia</option>
+						<option value="82">Ecocardiografia Pediátrica</option>
+						<option value="67">Ecografia Vascular com DOPPLER</option>
+						<option value="78">Eletrencefalografia</option>
+						<option value="68">Eletrofisiologia Clínica Invasiva</option>
+						<option value="77">Eletroneuromiografia</option>
+						<option value="106">Emergência Pediátrica</option>
+						<option value="23">Endocrinologia Pediátrica</option>
+						<option value="24">Endoscopia Digestiva</option>
+						<option value="69">Endoscopia Ginecológica</option>
+						<option value="25">Endoscopia Respiratória</option>
+						<option value="26">Epidemiologia</option>
+						<option value="70">Ergometria</option>
+						<option value="107">Estimulação Cardíaca Eletrônica Implantável</option>
+						<option value="27">Foniatria</option>
+						<option value="28">Gastroenterologia Pediátrica</option>
+						<option value="29">Hansenologia</option>
+						<option value="30">Hematologia e Hemoterapia Pediátrica</option>
+						<option value="31">Hemodinâmica e Cardiologia Intervencionista</option>
+						<option value="83">Hemodinâmica/Cardiol. Intervencionista Pediátrica</option>
+						<option value="32">Hepatologia</option>
+						<option value="84">Histeroscopia</option>
+						<option value="33">Histopatologia</option>
+						<option value="34">Infectologia Hospitalar</option>
+						<option value="35">Infectologia Pediátrica</option>
+						<option value="85">Laparoscopia</option>
+						<option value="86">Mamografia</option>
+						<option value="91">Medicina Aeroespacial</option>
+						<option value="37">Medicina Fetal</option>
+						<option value="38">Medicina Intensiva Neonatal</option>
+						<option value="39">Medicina Intensiva Pediátrica</option>
+						<option value="101">Medicina Paliativa</option>
+						<option value="40">Medicina Sanitária</option>
+						<option value="102">Medicina Tropical</option>
+						<option value="71">Medicina de Urgência</option>
+						<option value="36">Medicina do Adolescente</option>
+						<option value="100">Medicina do Sono</option>
+						<option value="41">Nefrologia Pediátrica</option>
+						<option value="42">Neonatologia</option>
+						<option value="43">Neurofisiologia Clínica</option>
+						<option value="44">Neurologia Pediátrica</option>
+						<option value="45">Neurorradiologia</option>
+						<option value="87">Neurorradiologia Diagnóstica</option>
+						<option value="88">Neurorradiologia Terapêutica</option>
+						<option value="46">Nutrição Parenteral e Enteral</option>
+						<option value="72">Nutrição Parenteral e Enteral Pediátrica</option>
+						<option value="47">Nutrologia Pediátrica</option>
+						<option value="48">Oncologia Clínica</option>
+						<option value="49">Oncologia Pediátrica</option>
+						<option value="50">Ortopedia Pediátrica</option>
+						<option value="51">Pediatria Preventiva e Social</option>
+						<option value="92">Perícia Médica</option>
+						<option value="52">Pneumologia Pediátrica</option>
+						<option value="80">Polissonografia</option>
+						<option value="79">Potenciais Evocados</option>
+						<option value="53">Psicogeriatria</option>
+						<option value="54">Psicoterapia</option>
+						<option value="56">Psiquiatria Forense</option>
+						<option value="55">Psiquiatria da Infância e da Adolescência</option>
+						<option value="57">Radiologia Intervencionista e Angiorradiologia</option>
+						<option value="105">Reprodução Assistida</option>
+						<option value="58">Reprodução Humana</option>
+						<option value="59">Ressonância Magnética</option>
+						<option value="60">Reumatologia Pediátrica</option>
+						<option value="62">Sexologia</option>
+						<option value="103">Toxicologia Médica</option>
+						<option value="90">Transplante de medula óssea</option>
+						<option value="89">Tratamento da Dor</option>
+						<option value="64">Ultrassonografia</option>
+						<option value="73">Ultrassonografia Geral</option>
+						<option value="65">Ultrassonografia em ginecologia e obstetrícia</option>
+					</select>
+				</div>
+				<div class="col">
+					<label>Especialidade: </label>
+					<select class="form-select" aria-label="Disabled select example" id = "Especialidade">
+						<option value="">Selecione</option>
+						<option value="66">ACUPUNTURA</option>
+						<option value="97">ADMINISTRAÇÃO EM SAÚDE</option>
+						<option value="1">ADMINISTRAÇÃO HOSPITALAR</option>
+						<option value="2">ALERGIA E IMUNOLOGIA</option>
+						<option value="98">ALERGIA E IMUNOPATOLOGIA</option>
+						<option value="84">ANATOMIA PATOLÓGICA</option>
+						<option value="3">ANESTESIOLOGIA</option>
+						<option value="4">ANGIOLOGIA</option>
+						<option value="67">ANGIOLOGIA E CIRURGIA VASCULAR</option>
+						<option value="5">BRONCOESOFAGOLOGIA</option>
+						<option value="6">CANCEROLOGIA</option>
+						<option value="80">CANCEROLOGIA/CANCEROLOGIA CIRÚRGICA</option>
+						<option value="81">CANCEROLOGIA/CANCEROLOGIA PEDIÁTRICA</option>
+						<option value="7">CARDIOLOGIA</option>
+						<option value="8">CIRURGIA CARDIOVASCULAR</option>
+						<option value="10">CIRURGIA DA MÃO</option>
+						<option value="9">CIRURGIA DE CABEÇA E PESCOÇO</option>
+						<option value="99">CIRURGIA DIGESTIVA</option>
+						<option value="11">CIRURGIA DO APARELHO DIGESTIVO</option>
+						<option value="85">CIRURGIA DO TRAUMA</option>
+						<option value="86">CIRURGIA GASTROENTEROLÓGICA</option>
+						<option value="12">CIRURGIA GERAL</option>
+						<option value="87">CIRURGIA ONCOLÓGICA</option>
+						<option value="13">CIRURGIA PEDIÁTRICA</option>
+						<option value="14">CIRURGIA PLÁSTICA</option>
+						<option value="15">CIRURGIA TORÁCICA</option>
+						<option value="110">CIRURGIA TORÁXICA</option>
+						<option value="16">CIRURGIA VASCULAR</option>
+						<option value="88">CIRURGIA VASCULAR PERIFÉRICA</option>
+						<option value="17">CITOPATOLOGIA</option>
+						<option value="68">CLÍNICA MÉDICA</option>
+						<option value="69">COLOPROCTOLOGIA</option>
+						<option value="260">DENSITOMETRIA ÓSSEA</option>
+						<option value="18">DERMATOLOGIA</option>
+						<option value="83">DIAGNÓSTICO POR IMAGEM</option>
+						<option value="89">DOENÇAS INFECCIOSAS E PARASITÁRIAS</option>
+						<option value="19">ELETROENCEFALOGRAFIA</option>
+						<option value="70">ENDOCRINOLOGIA</option>
+						<option value="20">ENDOCRINOLOGIA E METABOLOGIA</option>
+						<option value="82">ENDOSCOPIA</option>
+						<option value="21">ENDOSCOPIA DIGESTIVA</option>
+						<option value="109">ENDOSCOPIA PERORAL</option>
+						<option value="101">ENDOSCOPIA PERORAL VIAS AÉREAS</option>
+						<option value="22">FISIATRIA</option>
+						<option value="23">FONIATRIA</option>
+						<option value="24">GASTROENTEROLOGIA</option>
+						<option value="25">GENÉTICA CLÍNICA</option>
+						<option value="108">GENÉTICA LABORATORIAL</option>
+						<option value="71">GENÉTICA MÉDICA</option>
+						<option value="26">GERIATRIA</option>
+						<option value="90">GERIATRIA E GERONTOLOGIA</option>
+						<option value="27">GINECOLOGIA</option>
+						<option value="72">GINECOLOGIA E OBSTETRÍCIA</option>
+						<option value="28">HANSENOLOGIA</option>
+						<option value="29">HEMATOLOGIA</option>
+						<option value="73">HEMATOLOGIA E HEMOTERAPIA</option>
+						<option value="30">HEMOTERAPIA</option>
+						<option value="102">HEPATOLOGIA</option>
+						<option value="31">HOMEOPATIA</option>
+						<option value="91">IMUNOLOGIA CLÍNICA</option>
+						<option value="32">INFECTOLOGIA</option>
+						<option value="92">INFORMÁTICA MÉDICA</option>
+						<option value="33">MASTOLOGIA</option>
+						<option value="261">MEDICINA DE EMERGÊNCIA</option>
+						<option value="74">MEDICINA DE FAMÍLIA E COMUNIDADE</option>
+						<option value="35">MEDICINA DE TRÁFEGO</option>
+						<option value="93">MEDICINA DO ADOLESCENTE</option>
+						<option value="103">MEDICINA DO ESPORTE</option>
+						<option value="34">MEDICINA DO TRABALHO</option>
+						<option value="36">MEDICINA ESPORTIVA</option>
+						<option value="75">MEDICINA FÍSICA E REABILITAÇÃO</option>
+						<option value="37">MEDICINA GERAL COMUNITÁRIA</option>
+						<option value="38">MEDICINA INTENSIVA</option>
+						<option value="39">MEDICINA INTERNA OU CLÍNICA MÉDICA</option>
+						<option value="40">MEDICINA LEGAL</option>
+						<option value="259">MEDICINA LEGAL E PERÍCIA MÉDICA</option>
+						<option value="41">MEDICINA NUCLEAR</option>
+						<option value="76">MEDICINA PREVENTIVA E SOCIAL</option>
+						<option value="42">MEDICINA SANITÁRIA</option>
+						<option value="43">NEFROLOGIA</option>
+						<option value="44">NEUROCIRURGIA</option>
+						<option value="45">NEUROFISIOLOGIA CLÍNICA</option>
+						<option value="46">NEUROLOGIA</option>
+						<option value="47">NEUROLOGIA PEDIÁTRICA</option>
+						<option value="94">NEUROPEDIATRIA</option>
+						<option value="104">NUTRIÇÃO PARENTERAL E ENTERAL</option>
+						<option value="48">NUTROLOGIA</option>
+						<option value="49">OBSTETRÍCIA</option>
+						<option value="50">OFTALMOLOGIA</option>
+						<option value="95">ONCOLOGIA</option>
+						<option value="79">ONCOLOGIA CLÍNICA</option>
+						<option value="51">ORTOPEDIA E TRAUMATOLOGIA</option>
+						<option value="52">OTORRINOLARINGOLOGIA</option>
+						<option value="53">PATOLOGIA</option>
+						<option value="54">PATOLOGIA CLÍNICA</option>
+						<option value="77">PATOLOGIA CLÍNICA/MEDICINA LABORATORIAL</option>
+						<option value="55">PEDIATRIA</option>
+						<option value="56">PNEUMOLOGIA</option>
+						<option value="105">PNEUMOLOGIA E TISIOLOGIA</option>
+						<option value="57">PROCTOLOGIA</option>
+						<option value="58">PSIQUIATRIA</option>
+						<option value="96">PSIQUIATRIA INFANTIL</option>
+						<option value="106">RADIODIAGNÓSTICO</option>
+						<option value="59">RADIOLOGIA</option>
+						<option value="78">RADIOLOGIA E DIAGNÓSTICO POR IMAGEM</option>
+						<option value="60">RADIOTERAPIA</option>
+						<option value="61">REUMATOLOGIA</option>
+						<option value="62">SEXOLOGIA</option>
+						<option value="63">TERAPIA INTENSIVA</option>
+						<option value="257">TERAPIA INTENSIVA PEDIÁTRICA</option>
+						<option value="64">TISIOLOGIA</option>
+						<option value="258">TOCO-GINECOLOGIA</option>
+						<option value="107">ULTRASSONOGRAFIA</option>
+						<option value="256">ULTRASSONOGRAFIA EM GINECOLOGIA E OBSTETRÍCIA</option>
+						<option value="255">ULTRASSONOGRAFIA GERAL</option>
+						<option value="65">UROLOGIA</option>
+					</select>
+				</div>
+			</div>
+			<!-- Ficha médica cadastral -->
+			<hr>
+			<div class="row">
+				<!--Opção de fazer login se já for cadastrado-->
+				<div class="row g-3">
+					<div style="text-align: center;">
+						<input type="submit" class="btn btn-site" id="verificacao" style="margin-bottom: 3%;">
+						<p><a href="index.html">se já possui conta, clique aqui!</a></p>
+						<p><a href="cadastro.html">Quero me cadastrar como Paciente</a></p>
+					</div>
+				</div>
+		</form>
+	</div>
+</body>
+
+</html>

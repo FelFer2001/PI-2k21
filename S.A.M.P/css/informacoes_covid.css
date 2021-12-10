@@ -1,0 +1,40 @@
+/* Estilizando a tag p */
+p{
+	margin-right: 0%;
+	margin-left: 0%;
+	text-indent: 0%;
+}
+
+/* Estilizando a imagem */
+img.displayed{
+    display: block;
+    float: right;
+    margin-right: 20%;
+    margin-top: 1.5%;
+    width: 28%;
+}
+/* Estilizando a tag h2 */
+h2{
+    text-align: center;
+}
+/* Estilizando os títulos dos tópicos */
+h4{
+    margin-top: 2%;
+    font-size: 18px;
+    text-align: start;
+    font-weight: bold;
+    color: #FF0000;
+}
+/* Estilizando as colunas (col) */
+.topico{
+    margin-right: 1%;
+    border-style: solid;
+    border-radius: 5%;
+    border-width: thin;
+    border-color: white;
+    box-shadow: 1px 5px 10px black;
+}
+.row{
+    margin-right: 50%;
+    margin-left: 10%;
+}

@@ -1,0 +1,89 @@
+/*Estilizando todas as tags*/
+*{
+	font-family: 'arial';
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+	box-sizing: border-box;
+}
+nav{
+	background-color: #FF0000;
+}
+
+
+/*Estilizado a tag body*/
+body{
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	overflow: auto;
+}
+
+/* Posicionando o botão de login */
+.login #log_in{
+	position: absolute;
+	left: 46%;
+	bottom: 5px;
+	min-width: 50px;
+	line-height: 50px;
+	font-size: 25px;
+	border-radius: 12px;
+	transform: translateX(-50%);
+	text-align: center;
+}
+
+
+/* Estilizando os botões de cadastro */
+.btn-site{
+	background-color: #014d81;
+	color: white;
+	transition: 0.5s;
+}
+.btn-site:hover{
+	background-color: #0266A8;
+	color: white;
+}
+/* Estilizando a mensagem de login incorreto */
+#LoginIncorreto{
+	color: red;
+}
+/* Classe que torna objetos invisiveis */
+.invisivel{
+	display: none;
+}
+/* Classe onde fica todo o conteúdo da página */
+.estilo{
+	position: relative;
+	left: 78px;
+	width: calc(100% - 78px);
+	height: 100%;
+	padding: 1%;
+	font-size: 18px;
+	text-align: justify;
+	transition: all 0.5s ease;
+	z-index: 0;
+}
+/* Estilizando a tag h1 */
+.estilo h1{
+	color: #0266A8;
+	text-align: center;
+	font-weight: bolder;
+}
+/* Formatando a tag p */
+p:first-letter{
+	text-transform: uppercase;
+}
+p a{
+	text-decoration: none;
+	color: #0266A8;
+	font-weight: bolder;
+}
+p a:hover{
+	color: #014d81;
+}
+/*Formatação do botão*/
+.estilo button{
+	width: 150px;
+	margin-left: 50%;
+	transform: translate(-50%);
+}
